@@ -31,6 +31,17 @@ class Content
         echo json_encode($result);
     }
 
+    public static function getFromTitle() {
+        if(isset($_POST['title'])){
+            $whereValues = [
+                self::TITLE => $_POST['title'],
+            ];
+        }
+
+        $result = Database::select(self::TABLE_NAME, $whereValues);
+        echo json_encode($result);
+    }
+
     public static function add() {
         $values = [
             self::TYPEID => intval($_POST['typeid']),

@@ -10,6 +10,10 @@ class Webservice
 {
     public static function call(){
         $task = $_POST['task'];
+        if($task == 'getContent' && isset($_POST['title'])) {
+            include_once 'Content.php';
+            Content::getFromTitle();
+        }
         if($task == 'getContent') {
             include_once 'Content.php';
             Content::get();

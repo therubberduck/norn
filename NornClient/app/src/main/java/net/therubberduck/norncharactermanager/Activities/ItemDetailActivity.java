@@ -1,8 +1,13 @@
 package net.therubberduck.norncharactermanager.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import net.therubberduck.norncharactermanager.Model.DetailedItem;
@@ -26,12 +31,15 @@ public class ItemDetailActivity extends BaseActivity {
         Intent intent = getIntent();
         String itemId = intent.getStringExtra("itemId");
 
+        final Activity context = this;
         NetworkHandler handler = new NetworkHandler(this);
         handler.getItem(itemId, new Result<DetailedItem>(this) {
             @Override
             protected void resultReceived(DetailedItem result) {
                 txtItemName.setText(result.Title);
-                txtContent.setText(result.Content);
+
+                txtContent.setText(result.getLinkedContentText(context));
+                txtContent.setMovementMethod(LinkMovementMethod.getInstance());
             }
 
             @Override

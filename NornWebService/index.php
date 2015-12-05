@@ -12,6 +12,7 @@ if(isset($_POST['task'])){
 }
 else {
     echo "getContent: id(optional)<br>";
+    echo "getContent: title<br>";
     echo "addContent: typeid, title, content, visible<br>";
     echo "editContent: id, typeid, title, content, visible<br>";
     echo "deleteContent: id<br>";

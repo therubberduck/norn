@@ -49,6 +49,27 @@ public class NetworkHandler {
         });
     }
 
+    public void getItemFromTitle(String title, final Result<DetailedItem> resultConveyor) {
+        Map<String, String> params = new HashMap<>();
+        params.put("task", "getContent");
+        params.put("title", title);
+
+        makeQuery(params, resultConveyor, new NetRequest() {
+            @Override
+            public void onResponse(String response) throws Exception {
+                JSONArray jsonArray = new JSONArray(response);
+                if(jsonArray.length() > 0) {
+                    JSONObject jsonItem = jsonArray.getJSONObject(0);
+                    DetailedItem item = DetailedItem.create(jsonItem);
+                    resultConveyor.sendResult(item);
+                }
+                else {
+                    resultConveyor.reportError(new Exception("No item matching title returned from web service"));
+                }
+            }
+        });
+    }
+
     public void getItemsFromUserId(String userId, final Result<ArrayList<UserItem>> resultConveyor) {
         Map<String, String> params = new HashMap<>();
         params.put("task", "getContentOnUser");
