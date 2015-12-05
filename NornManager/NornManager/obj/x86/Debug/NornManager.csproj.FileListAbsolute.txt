@@ -11,3 +11,6 @@ D:\Dropbox\Code Projects\Visual Studio\NornManager\NornManager\bin\Debug\Newtons
 D:\Dropbox\Code Projects\Visual Studio\NornManager\NornManager\obj\x86\Debug\NornManager.CampaignForm.resources
 D:\Dropbox\Code Projects\Visual Studio\NornManager\NornManager\obj\x86\Debug\NornManager.Forms.AddContentForm.resources
 D:\Dropbox\Code Projects\Visual Studio\NornManager\NornManager\obj\x86\Debug\NornManager.Forms.ManageContentForm.resources
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\NornManager.exe.config
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.exe
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.pdb
