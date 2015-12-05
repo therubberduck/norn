@@ -35,7 +35,7 @@ namespace NornManager.Forms
             else if(!txtTitle.Text.Equals(""))
             {
                 btnAddNew.Text = "Clear";
-                var newContent = NetworkHandler.AddContent(txtTitle.Text, txtBody.Text, chkVisible.Checked);
+                var newContent = DbContent.AddContent(txtTitle.Text, txtBody.Text, chkVisible.Checked);
 
                 //Add the new content item
                 Store.Get().AddContent(newContent);
@@ -49,7 +49,7 @@ namespace NornManager.Forms
             if (lstContent.SelectedItem != null && !txtTitle.Text.Equals(""))
             {
                 var content = (Content)lstContent.SelectedItem;
-                NetworkHandler.EditContent(content.id, txtTitle.Text, txtBody.Text, chkVisible.Checked);
+                DbContent.EditContent(content.id, txtTitle.Text, txtBody.Text, chkVisible.Checked);
 
                 //Edit the content item
                 var visible = chkVisible.Checked ? "1" : "0";
@@ -72,7 +72,7 @@ namespace NornManager.Forms
             if (lstContent.SelectedItem != null)
             {
                 var content = (Content) lstContent.SelectedItem;
-                NetworkHandler.RemoveContent(content.id);
+                DbContent.RemoveContent(content.id);
 
                 Store.Get().RemoveContent(content);
                 RefreshList();

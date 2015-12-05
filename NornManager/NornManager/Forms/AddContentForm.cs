@@ -45,11 +45,11 @@ namespace NornManager.Forms
             {
                 if (_isEditing) //Edit item
                 {
-                    NetworkHandler.EditContentOnUser(_id, txtDetails.Text);
+                    DbUsers.EditContentOnUser(_id, txtDetails.Text);
                 }
                 else //New item
                 {
-                    NetworkHandler.AddContentToUser(selectedContent.id, _id, txtDetails.Text);
+                    DbUsers.AddContentToUser(selectedContent.id, _id, txtDetails.Text);
                 }
                 Close();
             }            

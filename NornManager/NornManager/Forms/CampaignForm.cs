@@ -18,15 +18,15 @@ namespace NornManager
             InitializeComponent();
 
             var store = Store.Get();
-            store.Users = NetworkHandler.GetUsers();
-            store.Content = NetworkHandler.GetContent();
+            store.Users = DbUsers.GetUsers();
+            store.Content = DbContent.GetContent();
 
             lstUsers.Items.AddRange(store.UsersArray);
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            var userContent = NetworkHandler.GetUserContent(SelectedUser().id);
+            var userContent = DbUsers.GetUserContent(SelectedUser().id);
             object[] contentArray = userContent.ToArray();
 
             lstContent.Items.Clear();
@@ -64,7 +64,7 @@ namespace NornManager
                 var contentOnUser = (ContentOnUser)lstContent.SelectedItem;
                 if (SelectedUser() != null && contentOnUser != null)
                 {
-                    NetworkHandler.RemoveContentFromUser(contentOnUser.id);
+                    DbUsers.RemoveContentFromUser(contentOnUser.id);
                     lstUsers_SelectedIndexChanged(null, null);
                 }
             }
