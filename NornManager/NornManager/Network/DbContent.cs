@@ -10,29 +10,44 @@ namespace NornManager.Network
 {
     public static class DbContent
     {
-        public static Content AddContent(string title, string content, bool visible)
+        public static Content AddContent(string title, string content, bool visible, string typeId)
         {
             var values = new NameValueCollection();
             values["task"] = "addContent";
-            values["typeid"] = "1";
+            values["typeid"] = typeId;
             values["title"] = title;
             values["content"] = content;
-            values["visible"] = visible.ToString();
+            if (visible)
+            {
+                values["visible"] = "True";
+            }
+            else
+            {
+                values["visible"] = "False";
+            }
+
 
             var newContent = NetworkHandler.MakeGetCall<Content>(values);
 
             return newContent.First();
         }
 
-        public static void EditContent(string id, string title, string content, bool visible)
+        public static void EditContent(string id, string title, string content, bool visible, string typeid)
         {
             var values = new NameValueCollection();
             values["task"] = "editContent";
             values["id"] = id;
-            values["typeid"] = "1";
+            values["typeid"] = typeid;
             values["title"] = title;
             values["content"] = content;
-            values["visible"] = visible.ToString();
+            if (visible)
+            {
+                values["visible"] = "True";
+            }
+            else
+            {
+                values["visible"] = "False";
+            }
 
             NetworkHandler.MakeCall(values);
         }

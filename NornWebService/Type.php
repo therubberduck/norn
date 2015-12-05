@@ -29,6 +29,17 @@ class Type
         Database::update(self::TABLE_NAME, $values, $where);
     }
 
+    public static function get() {
+        if(isset($_POST['id'])){
+            $whereValues = [
+                self::ID => $_POST['id'],
+            ];
+        }
+
+        $result = Database::select(self::TABLE_NAME, $whereValues);
+        echo json_encode($result);
+    }
+
     public static function remove() {
         $where = [
             self::ID => $_POST['id'],

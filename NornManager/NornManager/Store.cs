@@ -50,6 +50,10 @@ namespace NornManager
             }
         }
 
+        private List<ContentType> _contentTypes;
+        public List<ContentType> ContentTypes { get { return _contentTypes; } set { _contentTypes = value; } }
+        public object[] ContentTypesArray { get { return _contentTypes.ToArray(); } }
+
         private List<User> _users;
         public List<User> Users
         {

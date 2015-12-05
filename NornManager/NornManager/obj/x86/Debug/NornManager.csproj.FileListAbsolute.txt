@@ -14,3 +14,13 @@ D:\Dropbox\Code Projects\Visual Studio\NornManager\NornManager\obj\x86\Debug\Nor
 D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\NornManager.exe.config
 D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.exe
 D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.pdb
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\NornManager.exe
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\NornManager.pdb
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\Newtonsoft.Json.dll
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\bin\Debug\Newtonsoft.Json.xml
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.csprojResolveAssemblyReference.cache
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.Forms.AddContentForm.resources
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.CampaignForm.resources
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.Forms.ManageContentForm.resources
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.Properties.Resources.resources
+D:\Dropbox\Code Projects\Norn\NornManager\NornManager\obj\x86\Debug\NornManager.csproj.GenerateResource.Cache

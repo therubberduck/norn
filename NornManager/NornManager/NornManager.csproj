@@ -74,7 +74,11 @@
     </Compile>
     <Compile Include="Model\Content.cs" />
     <Compile Include="Model\ContentOnUser.cs" />
+    <Compile Include="Model\ContentType.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Network\DbContent.cs" />
+    <Compile Include="Network\DbTypes.cs" />
+    <Compile Include="Network\DbUsers.cs" />
     <Compile Include="Network\NetworkHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -16,6 +16,7 @@ else {
     echo "addContent: typeid, title, content, visible<br>";
     echo "editContent: id, typeid, title, content, visible<br>";
     echo "deleteContent: id<br>";
+    echo "getType: id(optional)<br>";
     echo "addType: title<br>";
     echo "editType: id, title<br>";
     echo "deleteType: id<br>";

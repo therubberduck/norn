@@ -20,6 +20,7 @@ namespace NornManager
             var store = Store.Get();
             store.Users = DbUsers.GetUsers();
             store.Content = DbContent.GetContent();
+            store.ContentTypes = DbTypes.GetTypes();
 
             lstUsers.Items.AddRange(store.UsersArray);
         }

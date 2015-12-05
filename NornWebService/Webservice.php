@@ -14,7 +14,7 @@ class Webservice
             include_once 'Content.php';
             Content::getFromTitle();
         }
-        if($task == 'getContent') {
+        else if($task == 'getContent') {
             include_once 'Content.php';
             Content::get();
         }
@@ -29,6 +29,10 @@ class Webservice
         else if($task == 'deleteContent'){
             include_once 'Content.php';
             Content::remove();
+        }
+        else if($task == 'getType') {
+            include_once 'Type.php';
+            Type::get();
         }
         else if($task == 'addType'){
             include_once 'Type.php';

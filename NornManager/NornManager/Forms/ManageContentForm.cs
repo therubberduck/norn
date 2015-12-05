@@ -12,6 +12,8 @@ namespace NornManager.Forms
             InitializeComponent();
 
             lstContent.Items.AddRange(Store.Get().ContentArray);
+            cmbType.Items.AddRange(Store.Get().ContentTypesArray);
+            cmbType.SelectedIndex = 0;
         }
 
         private void lstContent_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,6 +24,14 @@ namespace NornManager.Forms
                 txtTitle.Text = selectedContent.title;
                 txtBody.Text = selectedContent.content;
                 chkVisible.Checked = selectedContent.Visible();
+                foreach (ContentType type in cmbType.Items)
+                {
+                    if (type.id == selectedContent.typeid)
+                    {
+                        cmbType.SelectedItem = type;
+                        break;
+                    }
+                }
                 btnAddNew.Text = "Clear";
             }
         }
@@ -35,7 +45,12 @@ namespace NornManager.Forms
             else if(!txtTitle.Text.Equals(""))
             {
                 btnAddNew.Text = "Clear";
-                var newContent = DbContent.AddContent(txtTitle.Text, txtBody.Text, chkVisible.Checked);
+                if (cmbType.SelectedItem == null)
+                {
+                    return;
+                }
+                var type = (ContentType)cmbType.SelectedItem;
+                var newContent = DbContent.AddContent(txtTitle.Text, txtBody.Text, chkVisible.Checked, type.id);
 
                 //Add the new content item
                 Store.Get().AddContent(newContent);
@@ -49,7 +64,8 @@ namespace NornManager.Forms
             if (lstContent.SelectedItem != null && !txtTitle.Text.Equals(""))
             {
                 var content = (Content)lstContent.SelectedItem;
-                DbContent.EditContent(content.id, txtTitle.Text, txtBody.Text, chkVisible.Checked);
+                var type = (ContentType)cmbType.SelectedItem;
+                DbContent.EditContent(content.id, txtTitle.Text, txtBody.Text, chkVisible.Checked, type.id);
 
                 //Edit the content item
                 var visible = chkVisible.Checked ? "1" : "0";

@@ -51,17 +51,23 @@ class Database
     }
 
     public static function insert($tablename, $valueParams) {
+        //Open database connection
+        $conn = new mysqli(self::SERVERNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
+        if($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
         //Compile query
         $keys = "";
         $values = "";
 
         foreach($valueParams as $key => $value) {
             $keys .= ", " . $key;
-            if(is_int($value) || is_bool($value)){
+            if(is_int($value)){
                 $values .= ", " . $value . "";
             }
             else {
-                $values .= ", '" . $value . "'";
+                $values .= ", '" . $conn->real_escape_string($value) . "'";
             }
 
         }
@@ -73,12 +79,6 @@ class Database
 
         if($_POST['debug'] == 1){
             echo "Attempt query: " . $query . "<br>";
-        }
-
-        //Open database connection
-        $conn = new mysqli(self::SERVERNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
-        if($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
         }
 
         //Make query

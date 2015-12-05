@@ -35,6 +35,7 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtBody = new System.Windows.Forms.TextBox();
             this.chkVisible = new System.Windows.Forms.CheckBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lstContent
@@ -99,25 +100,34 @@
             this.txtBody.Location = new System.Drawing.Point(214, 38);
             this.txtBody.Multiline = true;
             this.txtBody.Name = "txtBody";
-            this.txtBody.Size = new System.Drawing.Size(183, 287);
+            this.txtBody.Size = new System.Drawing.Size(183, 260);
             this.txtBody.TabIndex = 5;
             // 
             // chkVisible
             // 
             this.chkVisible.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkVisible.AutoSize = true;
-            this.chkVisible.Location = new System.Drawing.Point(214, 331);
+            this.chkVisible.Location = new System.Drawing.Point(214, 304);
             this.chkVisible.Name = "chkVisible";
             this.chkVisible.Size = new System.Drawing.Size(62, 17);
             this.chkVisible.TabIndex = 6;
             this.chkVisible.Text = "Visibility";
             this.chkVisible.UseVisualStyleBackColor = true;
             // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(214, 327);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(183, 21);
+            this.cmbType.TabIndex = 7;
+            // 
             // ManageContentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 422);
+            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.chkVisible);
             this.Controls.Add(this.txtBody);
             this.Controls.Add(this.txtTitle);
@@ -141,5 +151,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox txtBody;
         private System.Windows.Forms.CheckBox chkVisible;
+        private System.Windows.Forms.ComboBox cmbType;
     }
 }

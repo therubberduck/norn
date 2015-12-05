@@ -10,23 +10,6 @@ namespace NornManager.Network
 {
     public static class DbUsers
     {
-        public static List<User> GetUsers()
-        {
-            var values = new NameValueCollection();
-            values["task"] = "getUser";
-
-            return NetworkHandler.MakeGetCall<User>(values);
-        }
-
-        public static List<ContentOnUser> GetUserContent(string userid)
-        {
-            var values = new NameValueCollection();
-            values["task"] = "getContentOnUser";
-            values["userid"] = userid;
-
-            return NetworkHandler.MakeGetCall<ContentOnUser>(values);
-        }
-
         public static void AddContentToUser(string contentid, string userid, string detail)
         {
             var values = new NameValueCollection();
@@ -46,6 +29,23 @@ namespace NornManager.Network
             values["detail"] = detail;
 
             NetworkHandler.MakeCall(values);
+        }
+
+        public static List<ContentOnUser> GetUserContent(string userid)
+        {
+            var values = new NameValueCollection();
+            values["task"] = "getContentOnUser";
+            values["userid"] = userid;
+
+            return NetworkHandler.MakeGetCall<ContentOnUser>(values);
+        }
+
+        public static List<User> GetUsers()
+        {
+            var values = new NameValueCollection();
+            values["task"] = "getUser";
+
+            return NetworkHandler.MakeGetCall<User>(values);
         }
 
         public static void RemoveContentFromUser(string id)

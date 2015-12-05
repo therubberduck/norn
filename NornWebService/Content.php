@@ -43,11 +43,15 @@ class Content
     }
 
     public static function add() {
+        $visible = 0;
+        if($_POST['visible'] == "True"){
+            $visible = 1;
+        }
         $values = [
             self::TYPEID => intval($_POST['typeid']),
             self::TITLE => $_POST ['title'],
             self::CONTENT => $_POST['content'],
-            self::VISIBLE => $_POST['visible'] == 'True',
+            self::VISIBLE => $visible
         ];
 
         $newId = Database::insert(self::TABLE_NAME, $values);
@@ -58,11 +62,15 @@ class Content
     }
 
     public static function edit() {
+        $visible = 0;
+        if($_POST['visible'] == "True"){
+            $visible = 1;
+        }
         $values = [
             self::TYPEID => $_POST['typeid'],
             self::TITLE => $_POST ['title'],
             self::CONTENT => $_POST['content'],
-            self::VISIBLE => $_POST['visible'],
+            self::VISIBLE => $visible,
         ];
         $where = [
             self::ID => $_POST['id'],
