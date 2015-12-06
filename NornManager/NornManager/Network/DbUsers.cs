@@ -10,23 +10,25 @@ namespace NornManager.Network
 {
     public static class DbUsers
     {
-        public static void AddContentToUser(string contentid, string userid, string detail)
+        public static void AddContentToUser(string contentid, string userid, string detail, string number)
         {
             var values = new NameValueCollection();
             values["task"] = "addContentToUser";
             values["contentid"] = contentid;
             values["userid"] = userid;
             values["detail"] = detail;
+            values["number"] = number;
 
             NetworkHandler.MakeCall(values);
         }
 
-        public static void EditContentOnUser(string id, string detail)
+        public static void EditContentOnUser(string id, string detail, string number)
         {
             var values = new NameValueCollection();
             values["task"] = "editContentOnUser";
             values["id"] = id;
             values["detail"] = detail;
+            values["number"] = number; 
 
             NetworkHandler.MakeCall(values);
         }

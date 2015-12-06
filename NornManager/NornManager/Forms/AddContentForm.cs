@@ -14,25 +14,25 @@ namespace NornManager.Forms
 {
     public partial class AddContentForm : Form
     {
-        private string _id; //contentOnUser or userId
+        private ContentOnUser _contentOnUser;
+        private string _userId;
 
-        private bool _isEditing = false;
-
-        public AddContentForm(string id, string selectedContent = "", string existingDetails = "")
+        public AddContentForm(string userId, ContentOnUser contentOnUser)
         {
             InitializeComponent();
 
-            _id = id;            
+            _userId = userId;
+            _contentOnUser = contentOnUser;
 
             //Autocompletion
             atxtContent.Values = Store.Get().VisibleContentTitles.ToArray();
 
-            if (!selectedContent.Equals(""))
+            if (contentOnUser != null)
             {
-                _isEditing = true;
-                atxtContent.Text = selectedContent;
+                atxtContent.Text = contentOnUser.title;
                 atxtContent.Enabled = false;
-                txtDetails.Text = existingDetails;
+                txtDetails.Text = contentOnUser.detail;
+                txtNumber.Text = contentOnUser.number;
                 btnAdd.Text = "Edit";
             }
         }
@@ -43,13 +43,13 @@ namespace NornManager.Forms
             var selectedContent = Store.Get().VisibleContent.FirstOrDefault(c => c.title.Equals(atxtContent.Text));
             if(selectedContent != null)
             {
-                if (_isEditing) //Edit item
+                if (_contentOnUser != null) //Edit item
                 {
-                    DbUsers.EditContentOnUser(_id, txtDetails.Text);
+                    DbUsers.EditContentOnUser(_contentOnUser.id, txtDetails.Text, txtNumber.Text);
                 }
                 else //New item
                 {
-                    DbUsers.AddContentToUser(selectedContent.id, _id, txtDetails.Text);
+                    DbUsers.AddContentToUser(selectedContent.id, _userId, txtDetails.Text, txtNumber.Text);
                 }
                 Close();
             }            

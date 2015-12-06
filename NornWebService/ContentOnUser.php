@@ -10,18 +10,18 @@ class ContentOnUser
     const ID = 'id';
     const CONTENTID = 'contentid';
     const USERID = 'userid';
+    const NUMBER = 'number';
     const DETAIL = 'detail';
-    const VISIBLE = 'visible';
 
     public static function get() {
         include_once 'Content.php';
 
         $whereString = "cu." . self::USERID . "='" .$_POST['userid'] . "'";
         if(isset($_POST['visible']) && $_POST['visible']){
-            $whereString .= " AND cu." . self::VISIBLE . "='" .$_POST['visible'] . "'";
+            $whereString .= " AND c." . Content::VISIBLE . "='" .$_POST['visible'] . "'";
         }
 
-        $query = "SELECT cu." . self::ID . ", cu." . self::CONTENTID . ", cu." . self::DETAIL . ", c." . Content::TITLE . "
+        $query = "SELECT cu." . self::ID . ", cu." . self::CONTENTID . ", cu." . self::NUMBER . ", cu." . self::DETAIL . ", c." . Content::TITLE . "
                 FROM " . self::TABLE_NAME . " AS cu INNER JOIN " . Content::TABLE_NAME . " AS c ON cu." . self::CONTENTID . " = c." . Content::ID . "
                 WHERE " . $whereString;
 
@@ -33,7 +33,8 @@ class ContentOnUser
         $values = [
             self::CONTENTID => $_POST['contentid'],
             self::USERID => $_POST['userid'],
-            self::DETAIL => $_POST['detail'],
+            self::NUMBER => $_POST['number'],
+            self::DETAIL => $_POST['detail']
         ];
 
         Database::insert(self::TABLE_NAME, $values);
@@ -41,7 +42,8 @@ class ContentOnUser
 
     public static function edit() {
         $values = [
-            self::DETAIL => $_POST['detail'],
+            self::NUMBER => $_POST['number'],
+            self::DETAIL => $_POST['detail']
         ];
         $where = [
             self::ID => $_POST['id']

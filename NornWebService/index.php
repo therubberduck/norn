@@ -20,9 +20,9 @@ else {
     echo "addType: title<br>";
     echo "editType: id, title<br>";
     echo "deleteType: id<br>";
-    echo "getContentOnUser: userid, visible(optional)<br>";
-    echo "addContentToUser: contentid, userid, detail<br>";
-    echo "editContentOnUser: id, detail<br>";
+    echo "getContentOnUser: userid, number, visible(optional)<br>";
+    echo "addContentToUser: contentid, userid, number, detail<br>";
+    echo "editContentOnUser: id, number, detail<br>";
     echo "removeContentFromUser: id<br>";
     echo "getUser: id(optional)<br>";
 }

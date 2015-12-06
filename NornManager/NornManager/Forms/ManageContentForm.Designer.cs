@@ -100,14 +100,14 @@
             this.txtBody.Location = new System.Drawing.Point(214, 38);
             this.txtBody.Multiline = true;
             this.txtBody.Name = "txtBody";
-            this.txtBody.Size = new System.Drawing.Size(183, 260);
+            this.txtBody.Size = new System.Drawing.Size(183, 263);
             this.txtBody.TabIndex = 5;
             // 
             // chkVisible
             // 
             this.chkVisible.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkVisible.AutoSize = true;
-            this.chkVisible.Location = new System.Drawing.Point(214, 304);
+            this.chkVisible.Location = new System.Drawing.Point(214, 307);
             this.chkVisible.Name = "chkVisible";
             this.chkVisible.Size = new System.Drawing.Size(62, 17);
             this.chkVisible.TabIndex = 6;

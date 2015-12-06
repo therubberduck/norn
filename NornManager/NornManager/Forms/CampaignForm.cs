@@ -38,7 +38,7 @@ namespace NornManager
         {
             if(SelectedUser() != null)
             {
-                var addContentForm = new AddContentForm(SelectedUser().id);
+                var addContentForm = new AddContentForm(SelectedUser().id, null);
                 addContentForm.ShowDialog();
                 lstUsers_SelectedIndexChanged(null, null);
             }            
@@ -49,7 +49,7 @@ namespace NornManager
             var contentOnUser = (ContentOnUser)lstContent.SelectedItem;
             if(SelectedUser() != null && contentOnUser != null)
             {
-                var addContentForm = new AddContentForm(contentOnUser.id, contentOnUser.title, contentOnUser.detail);
+                var addContentForm = new AddContentForm(null, contentOnUser);
                 addContentForm.ShowDialog();
                 lstUsers_SelectedIndexChanged(null, null);
             }            
