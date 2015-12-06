@@ -8,6 +8,7 @@ public class UserItem {
     public String ContentId;
     public String Title;
     public String Detail;
+    public String Number;
 
     public static UserItem create(JSONObject itemJson) throws JSONException {
         UserItem item = new UserItem();
@@ -15,6 +16,7 @@ public class UserItem {
         item.ContentId = itemJson.getString("contentid");
         item.Title = itemJson.getString("title");
         item.Detail = itemJson.getString("detail");
+        item.Number = itemJson.getString("number");
         return item;
     }
 

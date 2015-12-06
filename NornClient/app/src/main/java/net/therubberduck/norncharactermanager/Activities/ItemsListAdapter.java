@@ -36,16 +36,23 @@ public class ItemsListAdapter extends ArrayAdapter<UserItem> {
 
         UserItem value = getItem(position);
         TextView textView = (TextView) cell.findViewById(R.id.txtItemName);
+
+        String displayText = "";
         if(value.isDetailedItem() && !value.Detail.isEmpty()){
-            textView.setText(value.Title + "(" + value.Detail + ")");
+            displayText = value.Title + "(" + value.Detail + ")";
         }
         else if(value.isDetailedItem()){
-            textView.setText(value.Title);
+            displayText = value.Title;
         }
         else {
-            textView.setText(value.Detail);
+            displayText = value.Detail;
             cell.setBackgroundColor(cell.getResources().getColor(android.R.color.holo_blue_light));
         }
+        if(!value.Number.equals("1")){
+            displayText = value.Number + " " + displayText;
+        }
+
+        textView.setText(displayText);
 
         cell.setOnClickListener(new View.OnClickListener() {
             @Override
