@@ -19,7 +19,7 @@ namespace NornManager.Model
             string toString = title;
             if (!string.IsNullOrEmpty(number) && number != "1")
             {
-                toString = number + " " + title;
+                toString += "(" + number + ")";
             }
             if (!string.IsNullOrEmpty(detail))
             {

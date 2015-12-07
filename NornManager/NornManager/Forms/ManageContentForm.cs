@@ -13,6 +13,7 @@ namespace NornManager.Forms
 
             lstContent.Items.AddRange(Store.Get().ContentArray);
             cmbType.Items.AddRange(Store.Get().ContentTypesArray);
+            atxtLinkName.Values = Store.Get().ContentTitles;
             cmbType.SelectedIndex = 0;
         }
 
@@ -38,6 +39,7 @@ namespace NornManager.Forms
 
         private void btnAddNew_Click(object sender, EventArgs e)
         {
+            imgBox.Image = Properties.Resources.loadingAnimation;
             if (btnAddNew.Text.Equals("Clear"))
             {
                 ClearItem();
@@ -57,10 +59,12 @@ namespace NornManager.Forms
                 RefreshList();
                 lstContent.SelectedItem = newContent;
             }
+            imgBox.Image = null;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            imgBox.Image = Properties.Resources.loadingAnimation;
             if (lstContent.SelectedItem != null && !txtTitle.Text.Equals(""))
             {
                 var content = (Content)lstContent.SelectedItem;
@@ -81,10 +85,12 @@ namespace NornManager.Forms
                 Store.Get().AddContent(editedContent);//We use the custom add function, so the arrays do get updated
                 RefreshList();
             }
+            imgBox.Image = null;
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            imgBox.Image = Properties.Resources.loadingAnimation;
             if (lstContent.SelectedItem != null)
             {
                 var content = (Content) lstContent.SelectedItem;
@@ -95,6 +101,7 @@ namespace NornManager.Forms
 
                 ClearItem();
             }
+            imgBox.Image = null;
         }
 
         private void ClearItem()
@@ -110,6 +117,32 @@ namespace NornManager.Forms
         {
             lstContent.Items.Clear();
             lstContent.Items.AddRange(Store.Get().ContentArray);
+        }
+
+        private void btnAddLink_Click(object sender, EventArgs e)
+        {
+            var newText = txtBody.Text;
+            var selectionStart = txtBody.SelectionStart;
+            var selectionLength = txtBody.SelectionLength;
+
+            var linkName = atxtLinkName.Text;
+            string linkText;
+            if (selectionLength == 0)
+            {
+                linkText = atxtLinkName.Text;
+            }
+            else
+            {
+                linkText = txtBody.Text.Substring(selectionStart, selectionLength);
+                newText = newText.Remove(selectionStart, selectionLength);
+            }
+
+            var linkTag = "<" + linkName + ":" + linkText + ">";
+            newText = newText.Insert(selectionStart, linkTag);
+            
+            txtBody.Text = newText;
+            txtBody.SelectionStart = selectionStart;
+            txtBody.SelectionLength = linkTag.Length;
         }
     }
 }

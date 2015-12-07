@@ -13,7 +13,8 @@ namespace NornManager
 
         private List<Content> _content;
         private List<Content> _visibleContent;
-        private List<string> _visibleContentTitles;
+        private string[] _visibleContentTitles;
+        private string[] _contentTitles;
         public List<Content> Content
         {
             get {return _content;}
@@ -25,7 +26,8 @@ namespace NornManager
             }
         }
         public List<Content> VisibleContent { get { return _visibleContent; } }
-        public List<string> VisibleContentTitles { get { return _visibleContentTitles; } }
+        public string[] VisibleContentTitles { get { return _visibleContentTitles; } }
+        public string[] ContentTitles { get { return _contentTitles; } }
         public object[] ContentArray { get { return _content.ToArray(); } }
         public void AddContent(Content content)
         {
@@ -42,12 +44,19 @@ namespace NornManager
             _content = _content.OrderBy(c => c.title).ToList();
 
             _visibleContent = new List<Content>();
-            _visibleContentTitles = new List<string>();
-            foreach (Content item in _content.Where(item => item.Visible()))
+            var visibleContentTitles = new List<string>();
+            var contentTitles = new List<string>();
+            foreach (Content item in _content)
             {
-                _visibleContent.Add(item);
-                _visibleContentTitles.Add(item.title);
+                contentTitles.Add(item.title);
+                if (item.Visible())
+                {
+                    _visibleContent.Add(item);
+                    visibleContentTitles.Add(item.title);
+                }
             }
+            _contentTitles = contentTitles.ToArray();
+            _visibleContentTitles = visibleContentTitles.ToArray();
         }
 
         private List<ContentType> _contentTypes;

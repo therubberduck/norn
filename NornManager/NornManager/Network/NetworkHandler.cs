@@ -27,6 +27,7 @@ namespace NornManager.Network
             using (var client = new WebClient())
             {
                 var response = client.UploadValues("http://therubberduck.net/norn/index.php", values);
+                var responseString = Encoding.Default.GetString(response);
             }
         }
     }

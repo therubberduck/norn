@@ -53,6 +53,7 @@ namespace NornManager.Views
             switch (e.KeyCode)
             {
                 case Keys.Tab:
+                case Keys.Enter:
                     {
                         if (_listBox.Visible)
                         {

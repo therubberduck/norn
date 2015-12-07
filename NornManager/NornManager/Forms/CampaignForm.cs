@@ -1,4 +1,5 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using System.Windows.Forms;
@@ -22,7 +23,9 @@ namespace NornManager
             store.Content = DbContent.GetContent();
             store.ContentTypes = DbTypes.GetTypes();
 
+            lstUsers.Sorted = true;
             lstUsers.Items.AddRange(store.UsersArray);
+            lstContent.Sorted = true;
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, System.EventArgs e)

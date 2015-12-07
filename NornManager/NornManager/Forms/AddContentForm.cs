@@ -25,7 +25,7 @@ namespace NornManager.Forms
             _contentOnUser = contentOnUser;
 
             //Autocompletion
-            atxtContent.Values = Store.Get().VisibleContentTitles.ToArray();
+            atxtContent.Values = Store.Get().VisibleContentTitles;
 
             if (contentOnUser != null)
             {
@@ -34,6 +34,10 @@ namespace NornManager.Forms
                 txtDetails.Text = contentOnUser.detail;
                 txtNumber.Text = contentOnUser.number;
                 btnAdd.Text = "Edit";
+            }
+            else
+            {
+                txtNumber.Text = "1";
             }
         }
 
