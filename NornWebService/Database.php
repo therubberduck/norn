@@ -69,7 +69,6 @@ class Database
             else {
                 $values .= ", '" . $conn->real_escape_string($value) . "'";
             }
-
         }
         $keys = substr($keys, 2);
         $values = substr($values, 2);
@@ -148,11 +147,22 @@ class Database
     }
 
     public static function update($tablename, $valueParams, $whereParams) {
+        //Open database connection
+        $conn = new mysqli(self::SERVERNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
+        if($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
         //Compile query
         $valuesString = "";
 
         foreach($valueParams as $key => $value) {
-            $valuesString .= ", " . $key . " = '" . $value . "'";
+            if(is_int($value)){
+                $valuesString .= ", " . $key . " = " . $value . "";
+            }
+            else {
+                $valuesString .= ", " . $key . " = '" . $conn->real_escape_string($value) . "'";
+            }
         }
         $valuesString = substr($valuesString, 2);
 
@@ -168,12 +178,6 @@ class Database
 
         if($_POST['debug'] == 1){
             echo "Attempt query: " . $query . "<br>";
-        }
-
-        //Open database connection
-        $conn = new mysqli(self::SERVERNAME, self::USERNAME, self::PASSWORD, self::DBNAME);
-        if($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
         }
 
         //Make query
