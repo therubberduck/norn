@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 public class NetworkHandler {
@@ -103,6 +104,7 @@ public class NetworkHandler {
                     UserItem item = UserItem.create(jsonItem);
                     items.add(item);
                 }
+                Collections.sort(items);
 
                 resultConveyor.sendResult(items);
             }
@@ -135,6 +137,7 @@ public class NetworkHandler {
                     User user = User.create(jsonUser);
                     users.add(user);
                 }
+                Collections.sort(users);
 
                 resultConveyor.sendResult(users);
             }

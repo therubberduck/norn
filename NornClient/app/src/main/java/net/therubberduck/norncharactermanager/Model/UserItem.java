@@ -3,7 +3,7 @@ package net.therubberduck.norncharactermanager.Model;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UserItem {
+public class UserItem implements Comparable<UserItem> {
     public String Id;
     public String ContentId;
     public String Title;
@@ -22,5 +22,10 @@ public class UserItem {
 
     public boolean isDetailedItem(){
         return !ContentId.equals("7") && !ContentId.equals("8");
+    }
+
+    @Override
+    public int compareTo(UserItem another) {
+        return Title.compareTo(another.Title);
     }
 }
