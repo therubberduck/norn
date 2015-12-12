@@ -23,6 +23,12 @@ public class ItemsListAdapter extends ArrayAdapter<UserItem> {
     }
 
     @Override
+    public void notifyDataSetChanged() {
+        _cells = new ItemListCell[super.getCount()];
+        super.notifyDataSetChanged();
+    }
+
+    @Override
     public void remove(UserItem object) {
         super.remove(object);
         _cells = new ItemListCell[super.getCount()];

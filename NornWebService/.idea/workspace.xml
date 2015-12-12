@@ -23,43 +23,25 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="30" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+            <state line="18" column="30" selection-start="975" selection-end="975" vertical-scroll-proportion="-9.153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/User.php">
+      <file leaf-file-name="ContentOnUser.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ContentOnUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="716" selection-end="991" vertical-scroll-proportion="0.0">
+            <state line="73" column="24" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.5037175">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Content.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Content.php">
+      <file leaf-file-name="Database.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="41" selection-start="2327" selection-end="2327" vertical-scroll-proportion="-14.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Webservice.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Webservice.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="9" selection-start="1120" selection-end="1120" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tag.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tag.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+            <state line="138" column="24" selection-start="4576" selection-end="4576" vertical-scroll-proportion="-21.115385">
               <folding />
             </state>
           </provider>
@@ -74,19 +56,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContentOnUser.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ContentOnUser.php">
+      <file leaf-file-name="Tag.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tag.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="50" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
+            <state line="17" column="0" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Database.php">
+      <file leaf-file-name="Webservice.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Webservice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="27" selection-start="5104" selection-end="5104" vertical-scroll-proportion="0.46096656">
+            <state line="45" column="36" selection-start="1771" selection-end="1771" vertical-scroll-proportion="-11.115385">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Content.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="71" column="41" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="14" selection-start="798" selection-end="871" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -110,11 +110,11 @@
         <option value="$PROJECT_DIR$/User.php" />
         <option value="$PROJECT_DIR$/portal.php" />
         <option value="$PROJECT_DIR$/Type.php" />
-        <option value="$PROJECT_DIR$/Webservice.php" />
         <option value="$PROJECT_DIR$/Content.php" />
-        <option value="$PROJECT_DIR$/ContentOnUser.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Database.php" />
+        <option value="$PROJECT_DIR$/Webservice.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/ContentOnUser.php" />
       </list>
     </option>
   </component>
@@ -177,11 +177,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="Norn" serverId="aaa50012-7e2e-4b72-82cf-d39a563e6c4a">
     <servers>
@@ -260,7 +260,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20917822" sideWeight="0.671875" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113127" sideWeight="0.671875" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -400,44 +400,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="716" selection-end="991" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="30" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ContentOnUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="50" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Content.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="41" selection-start="2327" selection-end="2327" vertical-scroll-proportion="-14.0">
+        <state line="71" column="41" selection-start="2327" selection-end="2327" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Webservice.php">
+    <entry file="file://$PROJECT_DIR$/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="1120" selection-end="1120" vertical-scroll-proportion="-0.65384614">
+        <state line="16" column="14" selection-start="798" selection-end="871" vertical-scroll-proportion="-10.461538">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="27" selection-start="5104" selection-end="5104" vertical-scroll-proportion="0.46096656">
+        <state line="138" column="24" selection-start="4576" selection-end="4576" vertical-scroll-proportion="-21.115385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="30" selection-start="975" selection-end="975" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Webservice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="36" selection-start="1771" selection-end="1771" vertical-scroll-proportion="-11.115385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ContentOnUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="24" selection-start="2794" selection-end="2794" vertical-scroll-proportion="0.5037175">
           <folding />
         </state>
       </provider>

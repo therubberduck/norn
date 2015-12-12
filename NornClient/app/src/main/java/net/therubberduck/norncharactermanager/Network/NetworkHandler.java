@@ -109,6 +109,18 @@ public class NetworkHandler {
         });
     }
 
+    public void useItemOnUser(String itemId, final Result<Boolean> resultConveyor){
+        Task task = new Task("useContentOnUser");
+        task.put("id", itemId);
+
+        makeQuery(task, resultConveyor, new NetRequest() {
+            @Override
+            public void onResponse(String response) throws Exception {
+                resultConveyor.sendResult(true);
+            }
+        });
+    }
+
     public void getUsers(final Result<ArrayList<User>> resultConveyor){
         Task params = new Task("getUser");
 

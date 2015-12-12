@@ -24,5 +24,8 @@ else {
     echo "addContentToUser: contentid, userid, number, detail<br>";
     echo "editContentOnUser: id, number, detail<br>";
     echo "removeContentFromUser: id<br>";
+    echo "useContentOnUser: id<br>";
     echo "getUser: id(optional)<br>";
+    echo "<br>";
+    echo "Can debug by adding param: debug = 1";
 }

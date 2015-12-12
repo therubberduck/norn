@@ -53,11 +53,17 @@ public class ItemsListActivity extends BaseActivity {
 
     public void deleteItem(final UserItem item) {
         NetworkHandler handler = NetworkHandler.get(this);
-        handler.deleteItemOnUser(item.Id, new Result<Boolean>(this) {
+        handler.useItemOnUser(item.Id, new Result<Boolean>(this) {
             @Override
             protected void resultReceived(Boolean successful) {
-                if(successful){
-                    _listAdapter.remove(item);
+                if (successful) {
+                    if(item.Number.equals("1")){
+                        _listAdapter.remove(item);
+                    }
+                    else {
+                        item.Number = String.valueOf(Integer.parseInt(item.Number) - 1);
+                        _listAdapter.notifyDataSetChanged();
+                    }
                 }
             }
 

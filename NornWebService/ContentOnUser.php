@@ -38,6 +38,7 @@ class ContentOnUser
         ];
 
         Database::insert(self::TABLE_NAME, $values);
+        echo "[\"success\":\"true\"]";
     }
 
     public static function edit() {
@@ -50,6 +51,7 @@ class ContentOnUser
         ];
 
         Database::update(self::TABLE_NAME, $values, $where);
+        echo "[\"success\":\"true\"]";
     }
 
     public static function remove() {
@@ -58,5 +60,33 @@ class ContentOnUser
         ];
 
         Database::delete(self::TABLE_NAME, $where);
+        echo "[\"success\":\"true\"]";
+    }
+
+    public static function useContentOnUser(){
+        $whereValues = [
+            self::ID => $_POST['id'],
+        ];
+        $contentOnUser = Database::select(self::TABLE_NAME, $whereValues);
+        $numberOnUser = $contentOnUser[0][self::NUMBER];
+        if($numberOnUser == 1){
+            self::remove();
+            echo "[\"success\":\"true\", \"result\":\"Content removed from user\"]";
+        }
+        else if($numberOnUser > 1){
+            $numberOnUser--;
+            $values = [
+                self::NUMBER => $numberOnUser,
+            ];
+            $where = [
+                self::ID => $_POST['id']
+            ];
+
+            Database::update(self::TABLE_NAME, $values, $where);
+            echo "[\"success\":\"true\", \"result\":\"Content reduced to " . $numberOnUser . " items on user\"]";
+        }
+        else {
+            echo "[\"success\":\"false\", \"result\":\"Less than 1 item on user already\"]";
+        }
     }
 }

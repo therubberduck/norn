@@ -62,6 +62,10 @@ class Webservice
             include_once 'ContentOnUser.php';
             ContentOnUser::remove();
         }
+        else if($task == 'useContentOnUser'){
+            include_once 'ContentOnUser.php';
+            ContentOnUser::useContentOnUser();
+        }
         else if($task == 'getUser'){
             include_once 'User.php';
             User::get();
