@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import net.therubberduck.norncharactermanager.Model.User;
 import net.therubberduck.norncharactermanager.Network.NetworkHandler;
@@ -39,6 +40,8 @@ public class UserActivity extends BaseActivity {
                 Log.e("norn", "Error Caught: ", e);
             }
         });
+
+        _lstUsers.setEmptyView(findViewById(R.id.txtEmptyView));
     }
 
     public void itemClicked(int position) {

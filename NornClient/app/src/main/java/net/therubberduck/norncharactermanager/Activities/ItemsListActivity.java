@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import net.therubberduck.norncharactermanager.Model.UserItem;
 import net.therubberduck.norncharactermanager.Network.NetworkHandler;
@@ -16,6 +17,8 @@ public class ItemsListActivity extends BaseActivity {
 
     ListView _lstItems;
     ItemsListAdapter _listAdapter;
+
+    TextView txtEmptyListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class ItemsListActivity extends BaseActivity {
                 Log.e("norn", "Error Caught: ", e);
             }
         });
+
+        _lstItems.setEmptyView(findViewById(R.id.txtEmptyView));
     }
 
     public void itemClicked(UserItem item) {

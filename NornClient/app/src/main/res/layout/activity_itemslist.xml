@@ -8,5 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/cell_item"/>
+    <TextView android:id="@+id/txtEmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="36dp"
+        android:visibility="gone"
+        android:text="No items found."/>
 
 </LinearLayout>
