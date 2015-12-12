@@ -14,10 +14,18 @@ import java.util.ArrayList;
 public class ItemsListAdapter extends ArrayAdapter<UserItem> {
 
     ItemsListActivity _itemActivity;
+    ItemListCell[] _cells;
 
     public ItemsListAdapter(ItemsListActivity itemActivity, ArrayList<UserItem> objects) {
         super(itemActivity, -1, objects);
         _itemActivity = itemActivity;
+        _cells = new ItemListCell[objects.size()];
+    }
+
+    @Override
+    public void remove(UserItem object) {
+        super.remove(object);
+        _cells = new ItemListCell[super.getCount()];
     }
 
     @Override
@@ -28,39 +36,13 @@ public class ItemsListAdapter extends ArrayAdapter<UserItem> {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        View cell = convertView;
-        if(cell == null) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            cell = inflater.inflate(R.layout.cell_item, parent, false);
+        ItemListCell cell = _cells[position];
+        if(cell == null){
+            UserItem value = getItem(position);
+            _cells[position] = new ItemListCell(_itemActivity, parent, value);
+            cell = _cells[position];
         }
 
-        UserItem value = getItem(position);
-        TextView textView = (TextView) cell.findViewById(R.id.txtItemName);
-
-        String displayText = "";
-        if(value.isDetailedItem() && !value.Detail.isEmpty()){
-            displayText = value.Title + "(" + value.Detail + ")";
-        }
-        else if(value.isDetailedItem()){
-            displayText = value.Title;
-        }
-        else {
-            displayText = value.Detail;
-            cell.setBackgroundColor(cell.getResources().getColor(android.R.color.holo_blue_light));
-        }
-        if(!value.Number.equals("1")){
-            displayText = value.Number + " " + displayText;
-        }
-
-        textView.setText(displayText);
-
-        cell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                _itemActivity.itemClicked(position);
-            }
-        });
-
-        return cell;
+        return cell.view;
     }
 }

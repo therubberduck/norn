@@ -1,6 +1,7 @@
 package net.therubberduck.norncharactermanager.Network;
 
 import android.content.Context;
+import android.net.Network;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,10 +22,30 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class NetworkHandler {
+    private static NetworkHandler _instance;
     private RequestQueue _queue;
 
-    public NetworkHandler(Context context){
+    private NetworkHandler(Context context){
         _queue = Volley.newRequestQueue(context);
+    }
+
+    public static NetworkHandler get(Context context){
+        if(_instance == null){
+            _instance = new NetworkHandler(context);
+        }
+        return _instance;
+    }
+
+    public void deleteItemOnUser(String itemId, final Result<Boolean> resultConveyor){
+        Task task = new Task("removeContentFromUser");
+        task.put("id", itemId);
+
+        makeQuery(task, resultConveyor, new NetRequest() {
+            @Override
+            public void onResponse(String response) throws Exception {
+                resultConveyor.sendResult(true);
+            }
+        });
     }
 
     public void getItem(String itemId, final Result<DetailedItem> resultConveyor) {

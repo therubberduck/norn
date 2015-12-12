@@ -57,7 +57,7 @@ public class DetailedItem {
             span.setSpan(new ClickableSpan() {
                 @Override
                 public void onClick(View widget) {
-                    NetworkHandler networkHandler = new NetworkHandler(context);
+                    NetworkHandler networkHandler = NetworkHandler.get(context);
                     networkHandler.getItemFromTitle(linkInfo.LinkContent, new Result<DetailedItem>(context) {
                         @Override
                         protected void resultReceived(DetailedItem result) {

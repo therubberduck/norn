@@ -26,7 +26,7 @@ public class UserActivity extends BaseActivity {
 
         final UserActivity activity = this;
 
-        NetworkHandler handler = new NetworkHandler(this);
+        NetworkHandler handler = NetworkHandler.get(this);
         handler.getUsers(new Result<ArrayList<User>>(this) {
             @Override
             protected void resultReceived(ArrayList<User> result) {

@@ -27,7 +27,7 @@ public class ItemsListActivity extends BaseActivity {
         Intent intent = getIntent();
         String userId = intent.getStringExtra("userId");
 
-        NetworkHandler handler = new NetworkHandler(this);
+        NetworkHandler handler = NetworkHandler.get(this);
         final ItemsListActivity activity = this;
         handler.getItemsFromUserId(userId, new Result<ArrayList<UserItem>>(this) {
             @Override
@@ -43,12 +43,28 @@ public class ItemsListActivity extends BaseActivity {
         });
     }
 
-    public void itemClicked(int position) {
-        UserItem item = _listAdapter.getItem(position);
+    public void itemClicked(UserItem item) {
         if(!item.ContentId.equals("8") && !item.ContentId.equals("7")){
             Intent intent = new Intent(this, ItemDetailActivity.class);
             intent.putExtra("itemId", item.ContentId);
             startActivity(intent);
         }
+    }
+
+    public void deleteItem(final UserItem item) {
+        NetworkHandler handler = NetworkHandler.get(this);
+        handler.deleteItemOnUser(item.Id, new Result<Boolean>(this) {
+            @Override
+            protected void resultReceived(Boolean successful) {
+                if(successful){
+                    _listAdapter.remove(item);
+                }
+            }
+
+            @Override
+            protected void errorOccured(Exception e) {
+                Log.e("norn", "Error Caught: ", e);
+            }
+        });
     }
 }

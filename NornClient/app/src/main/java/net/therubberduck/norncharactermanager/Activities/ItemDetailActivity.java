@@ -32,7 +32,7 @@ public class ItemDetailActivity extends BaseActivity {
         String itemId = intent.getStringExtra("itemId");
 
         final Activity context = this;
-        NetworkHandler handler = new NetworkHandler(this);
+        NetworkHandler handler = NetworkHandler.get(this);
         handler.getItem(itemId, new Result<DetailedItem>(this) {
             @Override
             protected void resultReceived(DetailedItem result) {
