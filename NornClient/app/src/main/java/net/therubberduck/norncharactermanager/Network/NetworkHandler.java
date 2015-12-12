@@ -18,7 +18,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 public class NetworkHandler {
@@ -29,8 +28,7 @@ public class NetworkHandler {
     }
 
     public void getItem(String itemId, final Result<DetailedItem> resultConveyor) {
-        Map<String, String> params = new HashMap<>();
-        params.put("task", "getContent");
+        Task params = new Task("getContent");
         params.put("id", itemId);
 
         makeQuery(params, resultConveyor, new NetRequest() {
@@ -50,8 +48,7 @@ public class NetworkHandler {
     }
 
     public void getItemFromTitle(String title, final Result<DetailedItem> resultConveyor) {
-        Map<String, String> params = new HashMap<>();
-        params.put("task", "getContent");
+        Task params = new Task("getContent");
         params.put("title", title);
 
         makeQuery(params, resultConveyor, new NetRequest() {
@@ -71,8 +68,7 @@ public class NetworkHandler {
     }
 
     public void getItemsFromUserId(String userId, final Result<ArrayList<UserItem>> resultConveyor) {
-        Map<String, String> params = new HashMap<>();
-        params.put("task", "getContentOnUser");
+        Task params = new Task("getContentOnUser");
         params.put("userid", userId);
 
         makeQuery(params, resultConveyor, new NetRequest() {
@@ -93,8 +89,7 @@ public class NetworkHandler {
     }
 
     public void getUsers(final Result<ArrayList<User>> resultConveyor){
-        Map<String, String> params = new HashMap<>();
-        params.put("task", "getUser");
+        Task params = new Task("getUser");
 
         makeQuery(params, resultConveyor, new NetRequest() {
             @Override
@@ -116,18 +111,19 @@ public class NetworkHandler {
     private void makeQuery(final Map<String, String> params, final ResultBasic errorConveyor, final NetRequest requestConveyor){
         String url = "http://therubberduck.net/norn/index.php";
         requestConveyor.ErrorConveyor = errorConveyor;
-        final StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+        final StringRequest request = new StringRequest(Request.Method.POST, url,
+        new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 requestConveyor.runOnResponse(response);
             }
         },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        errorConveyor.reportError(error);
-                    }
-                }) {
+        new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                errorConveyor.reportError(error);
+            }
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 return params;
