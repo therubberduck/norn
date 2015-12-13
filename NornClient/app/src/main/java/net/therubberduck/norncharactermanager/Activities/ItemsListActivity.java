@@ -1,5 +1,7 @@
 package net.therubberduck.norncharactermanager.Activities;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,7 @@ import net.therubberduck.norncharactermanager.Model.UserItem;
 import net.therubberduck.norncharactermanager.Network.NetworkHandler;
 import net.therubberduck.norncharactermanager.Network.Result;
 import net.therubberduck.norncharactermanager.R;
+import net.therubberduck.norncharactermanager.Util.ErrorHandler;
 
 import java.util.ArrayList;
 
@@ -41,7 +44,7 @@ public class ItemsListActivity extends BaseActivity {
 
             @Override
             public void errorOccured(Exception e) {
-                Log.e("norn", "Error Caught: ", e);
+                ErrorHandler.showErrorDialog(activity, e);
             }
         });
 
@@ -58,6 +61,7 @@ public class ItemsListActivity extends BaseActivity {
 
     public void deleteItem(final UserItem item) {
         NetworkHandler handler = NetworkHandler.get(this);
+        final Context context = this;
         handler.useItemOnUser(item.Id, new Result<Boolean>(this) {
             @Override
             protected void resultReceived(Boolean successful) {
@@ -74,7 +78,7 @@ public class ItemsListActivity extends BaseActivity {
 
             @Override
             protected void errorOccured(Exception e) {
-                Log.e("norn", "Error Caught: ", e);
+                ErrorHandler.showErrorDialog(context, e);
             }
         });
     }

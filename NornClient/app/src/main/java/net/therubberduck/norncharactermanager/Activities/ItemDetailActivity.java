@@ -14,6 +14,7 @@ import net.therubberduck.norncharactermanager.Model.DetailedItem;
 import net.therubberduck.norncharactermanager.Network.NetworkHandler;
 import net.therubberduck.norncharactermanager.Network.Result;
 import net.therubberduck.norncharactermanager.R;
+import net.therubberduck.norncharactermanager.Util.ErrorHandler;
 
 public class ItemDetailActivity extends BaseActivity {
 
@@ -44,7 +45,7 @@ public class ItemDetailActivity extends BaseActivity {
 
             @Override
             public void errorOccured(Exception e) {
-                Log.e("norn", "Error Caught: ", e);
+                ErrorHandler.showErrorDialog(context, e);
             }
         });
     }

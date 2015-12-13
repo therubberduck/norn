@@ -10,6 +10,7 @@ import net.therubberduck.norncharactermanager.Model.User;
 import net.therubberduck.norncharactermanager.Network.NetworkHandler;
 import net.therubberduck.norncharactermanager.Network.Result;
 import net.therubberduck.norncharactermanager.R;
+import net.therubberduck.norncharactermanager.Util.ErrorHandler;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class UserActivity extends BaseActivity {
 
             @Override
             public void errorOccured(Exception e) {
-                Log.e("norn", "Error Caught: ", e);
+                ErrorHandler.showErrorDialog(activity, e);
             }
         });
 
