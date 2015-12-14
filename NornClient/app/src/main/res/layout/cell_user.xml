@@ -4,12 +4,18 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="32dp">
+    android:minHeight="32dp"
+    android:padding="8dp">
     <TextView android:id="@+id/txtUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:textSize="24sp"
-        android:textColor="@color/solid_black"
+        android:textColor="@color/text_dark_primary"
         tools:text="Rudolf Mccliff"/>
+    <TextView android:id="@+id/txtDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/text_dark_secondary"
+        tools:text="Half-fey Ranger"/>
 </LinearLayout>

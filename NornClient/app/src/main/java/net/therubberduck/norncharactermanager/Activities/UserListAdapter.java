@@ -1,5 +1,6 @@
 package net.therubberduck.norncharactermanager.Activities;
 
+import android.net.wifi.p2p.WifiP2pManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +38,8 @@ public class UserListAdapter extends ArrayAdapter<User> {
         User value = getItem(position);
         TextView textView = (TextView) cell.findViewById(R.id.txtUserName);
         textView.setText(value.Name);
+        TextView detailView = (TextView) cell.findViewById(R.id.txtDetail);
+        detailView.setText(value.Detail);
 
         cell.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,10 +1,10 @@
 package net.therubberduck.norncharactermanager.Activities;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import net.therubberduck.norncharactermanager.Model.UserItem;
@@ -13,15 +13,17 @@ import net.therubberduck.norncharactermanager.R;
 public class ItemListCell {
     public View view;
 
-    TextView textView;
-    ImageView imgDeleteButton;
+    LinearLayout _lnrContainer;
+    TextView _textView;
+    Button _btnDeleteButton;
 
     public ItemListCell(final ItemsListActivity activity, ViewGroup parent, final UserItem value) {
         LayoutInflater inflater = LayoutInflater.from(activity);
         view = inflater.inflate(R.layout.cell_item, parent, false);
 
-        textView = (TextView) view.findViewById(R.id.txtItemName);
-        imgDeleteButton = (ImageView) view.findViewById(R.id.imgDeleteButton);
+        _lnrContainer = (LinearLayout) view.findViewById(R.id.lnrContainer);
+        _textView = (TextView) view.findViewById(R.id.txtItemName);
+        _btnDeleteButton = (Button) view.findViewById(R.id.btnDeleteButton);
 
         String displayText = "";
         if(value.isDetailedItem() && !value.Detail.isEmpty()){
@@ -32,22 +34,22 @@ public class ItemListCell {
         }
         else {
             displayText = value.Detail;
-            view.setBackgroundColor(view.getResources().getColor(android.R.color.holo_blue_light));
+            _lnrContainer.setBackgroundColor(view.getResources().getColor(R.color.accent_light));
         }
         if(!value.Number.equals("1")){
             displayText = value.Number + " " + displayText;
         }
 
-        textView.setText(displayText);
+        _textView.setText(displayText);
 
-        textView.setOnClickListener(new View.OnClickListener() {
+        _textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.itemClicked(value);
             }
         });
 
-        imgDeleteButton.setOnClickListener(new View.OnClickListener() {
+        _btnDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.deleteItem(value);

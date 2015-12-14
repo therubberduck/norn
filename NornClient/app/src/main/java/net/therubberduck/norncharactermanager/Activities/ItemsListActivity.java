@@ -21,6 +21,7 @@ public class ItemsListActivity extends BaseActivity {
     ListView _lstItems;
     ItemsListAdapter _listAdapter;
 
+    TextView _txtTitle;
     TextView txtEmptyListView;
 
     @Override
@@ -28,10 +29,15 @@ public class ItemsListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_itemslist);
 
+        _txtTitle = findTextView(R.id.txtTitle);
         _lstItems = findListView(R.id.lstItems);
 
         Intent intent = getIntent();
         String userId = intent.getStringExtra("userId");
+        String userName = intent.getStringExtra("userName");
+
+        _txtTitle.setText(userName + "'s Inventory");
+        _lstItems.setEmptyView(findViewById(R.id.txtEmptyView));
 
         NetworkHandler handler = NetworkHandler.get(this);
         final ItemsListActivity activity = this;
@@ -48,7 +54,6 @@ public class ItemsListActivity extends BaseActivity {
             }
         });
 
-        _lstItems.setEmptyView(findViewById(R.id.txtEmptyView));
     }
 
     public void itemClicked(UserItem item) {

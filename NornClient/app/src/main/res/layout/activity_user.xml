@@ -1,14 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".UserActivity">
+    android:layout_height="match_parent"
+    tools:context=".UserActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/main"
+        android:textSize="36dp"
+        android:textColor="@color/text_light_primary"
+        android:text="Characters"/>
     <ListView android:id="@+id/lstUsers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:divider="@null"
         tools:listitem="@layout/cell_user"/>
     <TextView android:id="@+id/txtEmptyView"
         android:layout_width="match_parent"

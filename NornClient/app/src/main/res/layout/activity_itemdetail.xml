@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
+
     <TextView android:id="@+id/txtItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="24sp"
-        android:textColor="@color/solid_black"/>
+        android:padding="8dp"
+        android:background="@color/main"
+        android:textSize="36dp"
+        android:textColor="@color/text_light_primary"
+        tools:text="Invisibility Scroll"/>
     <TextView android:id="@+id/txtItemContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/solid_black"/>
+        android:padding="16dp"
+        android:textColor="@color/text_dark_primary"
+        tools:text="Lorem ipsum yada yada"/>
 </LinearLayout>

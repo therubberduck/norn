@@ -49,6 +49,7 @@ public class UserActivity extends BaseActivity {
         User user = _listAdapter.getItem(position);
         Intent intent = new Intent(this, ItemsListActivity.class);
         intent.putExtra("userId", user.Id);
+        intent.putExtra("userName", user.Name);
         startActivity(intent);
     }
 }

@@ -4,10 +4,19 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="@color/main"
+        android:textSize="36dp"
+        android:textColor="@color/text_light_primary"
+        tools:text="Rudolf's Inventory"/>
     <ListView android:id="@+id/lstItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/cell_item"/>
+        tools:listitem="@layout/cell_item"
+        android:divider="@null"/>
     <TextView android:id="@+id/txtEmptyView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
