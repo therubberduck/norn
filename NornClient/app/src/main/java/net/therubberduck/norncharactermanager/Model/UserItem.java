@@ -26,6 +26,18 @@ public class UserItem implements Comparable<UserItem> {
 
     @Override
     public int compareTo(UserItem another) {
-        return Title.compareTo(another.Title);
+        String myTitle = Title;
+        String yourTitle = another.Title;
+        if(ContentId.equals("8") || ContentId.equals("7")){
+            myTitle = Detail;
+        }
+        if(another.ContentId.equals("8") || another.ContentId.equals("7")){
+            yourTitle = another.Detail;
+        }
+        if(Title.equals(another.Title)){
+            myTitle = Detail;
+            yourTitle = another.Detail;
+        }
+        return myTitle.compareTo(yourTitle);
     }
 }
